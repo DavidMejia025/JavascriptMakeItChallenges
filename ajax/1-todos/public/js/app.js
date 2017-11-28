@@ -4,21 +4,30 @@ $(document).ready(function() {
 
 
 function bindEvents() {
-  alert('Initialize')
   // Enlaza los eventos que agregan, remuevan y completan TODOS a los elmentos del DOM indicados
   $('.delete-buton').on('click', delteTot)
-  $(form).on('submit', crateTodo)
+  $('form').on('submit', createTodo)
 }
 
-function createTodo(){
+function delteTot(){
   event.preventDefault();
   console.log(this)
-  console.log(this.input.value())
+  console.log(this.method)
 }
 function createTodo(){
   event.preventDefault();
-  console.log(this)
-  console.log(this.input.value())
+  $.ajax({
+    url: $(this).attr('action'),
+    method: "POST",
+    data: {todo_content: this.todo_content.value}
+
+  }).done(function(response){
+      console.log(response)
+      //$(".post-container").append(response)
+
+      $('todo_elements').append(response)
+    })
+  
 }
 function buildTodo(todoName) {
   // Eso nos ta un pedazo del DOM
