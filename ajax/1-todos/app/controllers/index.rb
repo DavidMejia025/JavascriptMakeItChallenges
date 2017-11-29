@@ -13,7 +13,7 @@ post '/' do
 	puts params["todo"]
 	@todo = Todo.new(params)
 	if @todo.save
-		erb :_newTodo
+		erb :"_newTodo", layout: false, locals: {post: @todo}
 	else
 		erb:index
 	end

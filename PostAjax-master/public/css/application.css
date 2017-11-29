@@ -11,8 +11,3 @@
 .todo.complete h2 {
   text-decoration: line-through;
 }
-
-.todo_elements{
-	list-style-type: none;	
-	background-color: yellow;
-}

@@ -25,7 +25,7 @@ function createTodo(){
       console.log(response)
       //$(".post-container").append(response)
 
-      $('todo_elements').append(response)
+      $('todo_elements').append('<li> Hola aqui estoy</li>')
     })
   
 }
